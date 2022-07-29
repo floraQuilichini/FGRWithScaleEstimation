@@ -12,6 +12,12 @@ Once he done the matching, the pairs need to be saved at the end of each feature
 If the user choose to set this parameter to 0 , then he could (or not) apply another criterion to select the best matching pairs amongst all (for further details, check the readme of "GLS_last_version").
 Then, he must write into the feature file the selected matching pairs, like he would do for inintial matching. 
 NB : if the user wants to perform cross-check (or equivalent) by himself, then he should set "do_initial_matching" to 0 and "do_cross_check" to 0. Then, he only have to write in both feature files the set of pairs (with indices) he wants to work with. 
+To test the first mode, please use the data in "mode1_data" and type the following command in the terminal : 
+ObjetSynthetique_simp_32_source_m0_s0.3.bin ObjetSynthetique_simp_32_target_m0_s0.5XZ.bin output_m0_s0.3m0_s0.5XZ.txt true true
+In this example, "ObjetSynthetique_simp_32_source_m0_s0.3.bin" and "ObjetSynthetique_simp_32_target_m0_s0.5XZ.bin" contain only the descriptors (FPFH) of the point clouds 
+ObjetSynthetique_simp32_source_m0_s0_.bin ObjetSynthetique_simp32_target_m0_s0_XZ0.bin output.txt false false
+In this example, "ObjetSynthetique_simp32_source_m0_s0_.bin" and "ObjetSynthetique_simp32_target_m0_s0_XZ0.bin" contains the descriptor profiles (FPFH) AND the selected matching pairs. 
+
 
 
 For the second mode, the parameters are the following : 
@@ -19,3 +25,8 @@ For the second mode, the parameters are the following :
 - target_point_cloud : the ply file of the target point cloud
 - triplet_pairs_file : the file where the k pairs (or the triplet of pairs) and their associated scale are stored. This file is the one given in output of GLS with aap2. In that file, for one line we have, the index of the target point and the index of the source point composing the pair, and the estimated scale for the pair 
 - transform_output_txt : output filename where the algorithm will write the transform
+
+To test the second mode, please use the data in "mode2_data" and type the following command in the terminal : 
+bunny_simp.ply bunny_simp_rX45_t0-4-3.ply 3pairs_lambda0_file.txt transform.txt
+In this example, "bunny_simp.ply" and "bunny_simp_rX45_t0-4-3.ply" are the source and target objects, and "3pairs_lambda0_file.txt" is the file that contains the matching pairs
+veins.ply veins_downsampled_rX45_t1-10-3_s1-0.8-1.2_croppedZX.ply 3pairs_lambda0_file.txt transform.txt
