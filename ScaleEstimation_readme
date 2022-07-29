@@ -1,0 +1,21 @@
+The branch "scale_estimation" is an extension of FGR that estimates the scale coefficients in the transform. 
+If the user open the "main.cpp" file, he will see that there is two mode for the application. The first mode (from line 36 to 53) is dedicated to FPFH, RoPS and SHOT descriptors. 
+The second mode (from line 55 to the end ) is dedicated to GLS descriptors. 
+For the first mode, the parameters are the following : 
+- feature_01 : feature file (ie descriptor file) of the source object
+- feature_02 : feature file of the target object
+- transform_output_txt : output filename where the algorithm will write the transform
+- do_ininital_matching : boolean to ask the algorithm to whether (1) or not (0) perform the point matching to create pairs. 
+If the user choose to set this parameter to 0, then he will have to do the matching by his own means, before calling FGR
+Once he done the matching, the pairs need to be saved at the end of each feature file. The format is  the following for a line of the file : index_p_source, index_p_target
+- do_cross_check : boolean to ask the algorithm to whether (1) or not (0) perform the cross_check verification on the matching pairs. 
+If the user choose to set this parameter to 0 , then he could (or not) apply another criterion to select the best matching pairs amongst all (for further details, check the readme of "GLS_last_version").
+Then, he must write into the feature file the selected matching pairs, like he would do for inintial matching. 
+NB : if the user wants to perform cross-check (or equivalent) by himself, then he should set "do_initial_matching" to 0 and "do_cross_check" to 0. Then, he only have to write in both feature files the set of pairs (with indices) he wants to work with. 
+
+
+For the second mode, the parameters are the following : 
+- source_point_cloud : the ply file of the source point cloud. What we call "source" is the complete object compared to the "target" which is a crop of the object. 
+- target_point_cloud : the ply file of the target point cloud
+- triplet_pairs_file : the file where the k pairs (or the triplet of pairs) and their associated scale are stored. This file is the one given in output of GLS with aap2. In that file, for one line we have, the index of the target point and the index of the source point composing the pair, and the estimated scale for the pair 
+- transform_output_txt : output filename where the algorithm will write the transform
