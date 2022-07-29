@@ -398,13 +398,13 @@ void CApp::AdvancedMatching(bool crosscheck)
 	}
 
 	int nPti = pointcloud_[fi].size();
-	int nPtj = pointcloud_[fj].size(); // we have nPtj < nPtj
+	int nPtj = pointcloud_[fj].size(); // we have nPtj < nPti
 
 
 	///////////////////////////
 	/// MATCHING
 	///////////////////////////
-	bool tuple = true;
+	bool tuple = false;
 
 	std::vector<int> corres_K, corres_K2;
 	std::vector<float> dis;

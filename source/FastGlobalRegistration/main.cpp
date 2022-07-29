@@ -32,7 +32,7 @@
 
 int main(int argc, char *argv[])
 {
-	/*
+
 	// with fpfh descriptors
 	printf("nb arg : %d \n", argc);
 	if (argc != 6)
@@ -50,8 +50,9 @@ int main(int argc, char *argv[])
 	app.AdvancedMatching(cross_check);
 	app.OptimizePairwise(true);
 	app.WriteTrans(argv[3]);
-	*/
+	
 
+	/*
 	// with GLS descriptors
 	printf("nb arg : %d \n", argc);
 	if (argc != 5)
@@ -78,8 +79,9 @@ int main(int argc, char *argv[])
 	std::chrono::nanoseconds ns_triplet = std::chrono::duration_cast<std::chrono::nanoseconds>(t1 - t0);
 	std::cout << "It took " << ns_triplet.count() << " nanosecond(s) to run triplet constraints" << std::endl;
 	//std::cout << "output transform : " << app.get_TransOutput() << std::endl;
-	app.WriteTrans(argv[4]);
+	app.WriteTrans(argv[4]);*/
 
 	//std::cin.get();
 	return 0;
+	
 }
