@@ -13,7 +13,7 @@ If the user choose to set this parameter to 0 , then he could (or not) apply ano
 Then, he must write into the feature file the selected matching pairs, like he would do for inintial matching. 
 NB : if the user wants to perform cross-check (or equivalent) by himself, then he should set "do_initial_matching" to 0 and "do_cross_check" to 0. Then, he only have to write in both feature files the set of pairs (with indices) he wants to work with. 
 
-To test the first mode with only descriptor files, please use the data in "scale_estimation_dataset/other_descriptor/fpfh/descriptor_file_only" and type the following command in the terminal : 
+To test the first mode with only descriptor files, please use the data in "scale_estimation_dataset/other_descriptor/fpfh/descriptor_file_only" and give FGR the following arguments : 
 ObjetSynthetique_simp_32_source_m0_s0.3_fpfh.bin ObjetSynthetique_simp_32_target_m0_s0.5XZ_fpfh.bin output_m0_s0.3m0_s0.5XZ.txt true true
 In this example, "ObjetSynthetique_simp_32_source_m0_s0.3_fpfh.bin" and "ObjetSynthetique_simp_32_target_m0_s0.5XZ_fpfh.bin" contain only the descriptors (FPFH) of the point clouds, and the matching is done by FGR algorithm
 To test the first mode with descriptor and matching files, please use the data in "scale_estimation_dataset/other_descriptor/fpfh/descriptor&matching_file"
@@ -29,7 +29,11 @@ For the second mode, the parameters are the following :
 - triplet_pairs_file : the file where the k pairs (or the triplet of pairs) and their associated scale are stored. This file is the one given in output of GLS with aap2. In that file, for one line we have, the index of the target point and the index of the source point composing the pair, and the estimated scale for the pair 
 - transform_output_txt : output filename where the algorithm will write the transform
 
-To test the second mode, please use the data in "mode2_data" and type the following command in the terminal : 
-bunny_simp.ply bunny_simp_rX45_t0-4-3.ply 3pairs_lambda0_file.txt transform.txt
-In this example, "bunny_simp.ply" and "bunny_simp_rX45_t0-4-3.ply" are the source and target objects, and "3pairs_lambda0_file.txt" is the file that contains the matching pairs
-veins.ply veins_downsampled_rX45_t1-10-3_s1-0.8-1.2_croppedZX.ply 3pairs_lambda0_file.txt transform.txt
+To test the second mode, please use the data in "scale_estimation_dataset/gls/meshes" and "scale_estimation_dataset/gls/matching_pairs", and give FGR the following arguments : 
+meshes\femur.ply meshes\femur_downsampled_rX45_t1-10-3_s0.5.ply matching_pairs\femur_femur_downsampled_rX45_t1-10-3_s0.5_pairs.txt tranform.txt
+In this example, "femur.ply" and "femur_downsampled_rX45_t1-10-3_s0.5.ply" are the source and target objects, and "femur_femur_downsampled_rX45_t1-10-3_s0.5_pairs.txt" is the file that contains the matching pairs compouted by the application 2 of GLS algorithm (see https://github.com/floraQuilichini/GLS_last_version)
+There are plenty of other examples with femur, veins, and hip the user can play with. Target meshes have been generated from source meshes (femur.ply, hip.ply and veins.ply). 
+The operations applied to generate the target are indicated in the name of target, into the suffix that comes after the radical source name. 
+eg: "femur_downsampled_rX45_t1-10-3_s0.5_croppedXY" means that the target has been generated from source "femur.ply" to which we applied a downsampling, followed by a X-axis rotation of 45°, followed by a translation of [1 10 3], followed by a scaling of [0.5 0.5 .5], and followed by a cropping by the plan XY. 
+To be able to compute the matchings, we should run first the application 1 of the GLS algorithm. This application takes meshes as inuput and outputs the GLS profiles. Then, the profiles are given to application 2 that outputs the matching pairs. 
+For the curiosity of the user, we also put the interediate profile results by appliying GLS application 1. These results are in "scale_estimation_dataset/gls/profiles". 
