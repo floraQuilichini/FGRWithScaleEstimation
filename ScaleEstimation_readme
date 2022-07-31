@@ -13,11 +13,13 @@ If the user choose to set this parameter to 0 , then he could (or not) apply ano
 Then, he must write into the feature file the selected matching pairs, like he would do for inintial matching. 
 NB : if the user wants to perform cross-check (or equivalent) by himself, then he should set "do_initial_matching" to 0 and "do_cross_check" to 0. Then, he only have to write in both feature files the set of pairs (with indices) he wants to work with. 
 
-To test the first mode, please use the data in "mode1_data" and type the following command in the terminal : 
-ObjetSynthetique_simp_32_source_m0_s0.3.bin ObjetSynthetique_simp_32_target_m0_s0.5XZ.bin output_m0_s0.3m0_s0.5XZ.txt true true
-In this example, "ObjetSynthetique_simp_32_source_m0_s0.3.bin" and "ObjetSynthetique_simp_32_target_m0_s0.5XZ.bin" contain only the descriptors (FPFH) of the point clouds 
-ObjetSynthetique_simp32_source_m0_s0_.bin ObjetSynthetique_simp32_target_m0_s0_XZ0.bin output.txt false false
-In this example, "ObjetSynthetique_simp32_source_m0_s0_.bin" and "ObjetSynthetique_simp32_target_m0_s0_XZ0.bin" contains the descriptor profiles (FPFH) AND the selected matching pairs. 
+To test the first mode with only descriptor files, please use the data in "scale_estimation_dataset/other_descriptor/fpfh/descriptor_file_only" and type the following command in the terminal : 
+ObjetSynthetique_simp_32_source_m0_s0.3_fpfh.bin ObjetSynthetique_simp_32_target_m0_s0.5XZ_fpfh.bin output_m0_s0.3m0_s0.5XZ.txt true true
+In this example, "ObjetSynthetique_simp_32_source_m0_s0.3_fpfh.bin" and "ObjetSynthetique_simp_32_target_m0_s0.5XZ_fpfh.bin" contain only the descriptors (FPFH) of the point clouds, and the matching is done by FGR algorithm
+To test the first mode with descriptor and matching files, please use the data in "scale_estimation_dataset/other_descriptor/fpfh/descriptor&matching_file"
+ObjetSynthetique_simp32_source_m0_s0_fpfh.bin ObjetSynthetique_simp32_target_m0_s0_XZ0_fpfh.bin output.txt false false
+In this example, "ObjetSynthetique_simp32_source_m0_s0_fpfh.bin" and "ObjetSynthetique_simp32_target_m0_s0_XZ0_fpfh.bin" contain the descriptor profiles (FPFH) AND the selected matching pairs. 
+The original point cloud from which have been computed the descriptors are stored in "scale_estimation_dataset/other_descriptor/meshes"
 
 
 
