@@ -12,6 +12,7 @@ Once he done the matching, the pairs need to be saved at the end of each feature
 If the user choose to set this parameter to 0 , then he could (or not) apply another criterion to select the best matching pairs amongst all (for further details, check the readme of "GLS_last_version").
 Then, he must write into the feature file the selected matching pairs, like he would do for inintial matching. 
 NB : if the user wants to perform cross-check (or equivalent) by himself, then he should set "do_initial_matching" to 0 and "do_cross_check" to 0. Then, he only have to write in both feature files the set of pairs (with indices) he wants to work with. 
+
 To test the first mode, please use the data in "mode1_data" and type the following command in the terminal : 
 ObjetSynthetique_simp_32_source_m0_s0.3.bin ObjetSynthetique_simp_32_target_m0_s0.5XZ.bin output_m0_s0.3m0_s0.5XZ.txt true true
 In this example, "ObjetSynthetique_simp_32_source_m0_s0.3.bin" and "ObjetSynthetique_simp_32_target_m0_s0.5XZ.bin" contain only the descriptors (FPFH) of the point clouds 
